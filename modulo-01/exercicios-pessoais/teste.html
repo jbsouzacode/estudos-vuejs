@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #069;
+        }
+        .c1{
+            background-color: red;
+        }
+        .c2{
+            background-color: yellow;
+        }
+    </style>
+    <title>Teste de código</title>
+</head>
+<body>
+  
+   <div id="app">
+       <div class="box" :class="estilo1" @click="setC1 = !setC1"></div>
+       <div class="box" :class="classeCSS"></div><hr>
+       <input type="text" v-model="classeCSS">
+   </div>
+   <script>
+       new Vue({
+           el:'#app',
+           data:{
+               setC1 : false,
+               classeCSS:'c1'
+           },
+           computed:{
+            estilo1(){
+                return{
+                    c1 : this.setC1,
+                    c2 : !this.setC1
+                }
+            }
+           }
+       })
+   </script>
+</body>
+</html>

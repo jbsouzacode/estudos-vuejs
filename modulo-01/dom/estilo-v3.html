@@ -1,0 +1,56 @@
+<script src="https://unpkg.com/vue"></script>
+<style>
+    .caixas{
+        display: flex;
+        justify-content: space-around;
+    }
+    .demo{
+        width: 100px;
+        height: 100px;
+        background-color: #069;
+        cursor: pointer;
+    }
+    .c1{
+        background-color: darkgreen;
+    }
+    .c2{
+       background-color: blueviolet; 
+    }
+    .c3{
+        background-color: crimson;
+    }
+
+    .girar{
+        transform: rotate(15deg);
+    }
+</style>
+<div id="app">
+    <div class="caixas">
+        <div class="demo" :class="estilo1" @click="setC1 = !setC1"></div>
+        <div class="demo" ></div>
+        <div class="demo" :class="[classeCss, {girar : setGirar}]"></div>
+    </div>
+    <input type="text" v-model="classeCss">
+</div>
+<hr>
+
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            setC1: false,
+            classeCss:'c1',
+            setGirar:true
+           
+        },
+        computed:{
+            estilo1(){
+                return{
+                    c1:this.setC1,
+                    c2:!this.setC1
+                }
+            }
+        }
+    })
+</script>

@@ -1,0 +1,33 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<title></title>
+<div id="app">
+    <p>{{ tPage() }}</p>
+    <p v-once>{{ title }}</p>
+    <p>{{ saudacao() }}</p>
+    <a v-bind:href="link">Google</a>
+    <hr>
+    <p v-html="linkHtml">UOL</p>
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            title:'Usando VueJS',
+            link: 'http://www.google.com',
+            linkHtml:'<a href="http://www.uol.com.br">UOL</a>',
+            titlePage:'Templates'
+        },
+        methods: {
+            saudacao: function(){
+                this.title = 'Bom dia!'
+                return this.title
+            },
+            
+            tPage: function(){
+                return this.titlePage
+            }
+            
+        }
+    })
+</script>

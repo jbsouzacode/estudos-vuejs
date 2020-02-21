@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/vue"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão de Exercícios</title>
+    <style>
+        #app{
+            width:50%;
+            height: 500px;;
+            margin:0 auto;
+            background-color:#ccc;
+        }
+    </style>
+</head>
+<body>
+   <div id="app" @mousemove="getXY">
+       <div id="content">
+            <p>{{ x }}</p> 
+            <input type="text" v-on:keyup="refreshField"> 
+            <p>{{ msg }}</p>
+            <p v-html="htmlLink"></p>
+            <a :href="url" :target="tg" >{{ site }}</a>
+            <p>{{ y }} | {{ z }}</p>
+            <input @keydown.enter="changeValue" type="text" style="width:50px;" :value="y">x  <br>
+            <input @keydown.enter="changeValue2" type="text" style="width:50px;" v-bind:value="z" >y
+       </div>
+   </div>
+      
+       
+</body>
+</html>
+<script src="app.js"></script>
