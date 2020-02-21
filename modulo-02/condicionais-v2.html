@@ -1,0 +1,29 @@
+<script src="https://unpkg.com/vue"></script>
+<meta charset="utf-8">
+<div id="app">
+    <!--RENDERIZAÇÃO CONDICIONAL-->
+    <p v-if="logado">Usuário logado: {{nome}}</p>
+    <p v-else-if="anonimo">Navegando Anônimo</p>
+    <p v-else="!logado">Nenhum usuário logado</p>
+    <input :type="logado ? 'hidden' : 'text'" @blur="log" :value="vInput">
+    <button @click="logado = !logado">{{logado ? 'Sair' : 'Entrar'}}</button>
+    <input :type="logado ? 'hidden' : 'checkbox'" v-model="anonimo">
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            nome:'',
+            logado:false,
+            anonimo:false,
+            vInput:''
+        },
+        methods:{
+            log(event){
+                return this.nome = event.target.value
+            }
+        },
+      
+        
+    })
+</script>
