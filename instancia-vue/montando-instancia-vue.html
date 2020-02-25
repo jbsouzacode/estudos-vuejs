@@ -2,17 +2,22 @@
 <script src="https://unpkg.com/vue"></script>
 
 <div id="app">
-    <h1>Usando Refs</h1>
-    <h2>{{titulo}}</h2>
-    <h2>{{modulo}}</h2>
-    <hr>
-    <button @click="alterarTitulo">Alterar título</button>
-    <button @click="alterarModulo">Alterar modulo</button>
-</div>
+   
 
 <script>
     const vm = new Vue({
-        el:'#app',
+        //el:'#app',
+        template:
+            `<div>
+                <h1>Usando Refs</h1>
+                <h2>{{titulo}}</h2>
+                <h2>{{modulo}}</h2>
+                <hr>
+                <button @click="alterarTitulo">Alterar título</button>
+                <button @click="alterarModulo">Alterar modulo</button>
+            </div>
+            `
+        ,
         data:{
             titulo:'Trabalhando templates',
             modulo:'Trabalhando com instancias do Vue'
@@ -28,5 +33,10 @@
             }
         }
     })
+
+    //vm.$mount('#app')
+    vm.$mount()
+    document.querySelector('#app').appendChild(vm.$el)
+
 
 </script>
