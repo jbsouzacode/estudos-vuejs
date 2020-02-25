@@ -1,0 +1,34 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue2-simplert@latest/dist/simplert.bundle.js"></script>
+    <title>Document</title>
+    <script>
+        import Simplert from 'vue2-simplert'
+        require('vue2-simplert/dist/simplert.css');
+        export default {
+            components: { Simplert }
+        };
+    </script>
+</head>
+<body>
+    <simplert :useRadius="true"
+          :useIcon="true"
+          ref="simplert">
+    </simplert>
+    
+</body>
+</html>
+<script>
+    let obj = {
+        title: 'Custom Function',
+        message: 'Click close to trigger custom function',
+        type: 'info',
+        onClose: this.onClose
+    }
+        this.$refs.simplert.openSimplert(obj)
+</script>
