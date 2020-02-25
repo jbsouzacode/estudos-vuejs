@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <h1>Usando Refs</h1>
+    <h2>{{titulo}}</h2>
+    <h2>{{modulo}}</h2>
+    <hr>
+    <button @click="alterarTitulo">Alterar título</button>
+    <button @click="alterarModulo">Alterar modulo</button>
+</div>
+
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            titulo:'Trabalhando templates',
+            modulo:'Trabalhando com instancias do Vue'
+        },
+        methods:{
+            alterarTitulo(){
+                this.titulo += '#'
+                console.log(this.$refs.rf.innerText)
+            },
+
+            alterarModulo(){
+                this.modulo += '#'
+            }
+        }
+    })
+
+</script>
