@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/vue"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kill Monster</title>
+</head>
+<body>
+    <div id="app">
+        <div class="pannel"> <p>Ataque Pica liberado em :{{pk}}% de energia!</p></div>
+        <div class="pannel scores">
+            <div class="score">
+                <h1>Player</h1>
+                <div class="life-bar">
+                    <div class="life" :class="{danger : playerLife < 20}" :style="{width: playerLife + '%'}"></div>
+                </div>
+                <div>{{playerLife}}%</div>
+            </div>
+            <div class="score">
+                <h1>Monster</h1>
+                <div class="life-bar">
+                    <div class="life" :class="{danger: monsterLife < 20}" :style="{width: monsterLife + '%'}"></div>
+                </div>
+                <div>{{monsterLife}}%</div>
+            </div>
+        </div><!--PANEL SCORES-->
+
+        <div v-if="hasResult" class="pannel result">
+            <div v-if="monsterLife == 0" class="win">Você ganhou!</div>
+            <div v-else class="loose">Você perdeu!</div>
+        </div>
+        <div class="pannel buttons">
+           
+           <template v-if="running">
+              
+            <button class="btn attack" @click="attack(false)">Ataque</button>
+            <button class="btn special-attack" @click="attack(true), specialAttack-=1" v-show="specialAttack != 0">Ataque especial :{{specialAttack}}</button>
+            <button class="btn special-attack" v-show="specialAttack == 0" disabled>Sem ataques especiais :{{specialAttack}}</button>
+            <button class="btn heal" @click="healAndHurt" v-show="curar!=0">Curar: {{curar}}</button>
+            <button class="btn heal" @click="healAndHurt" v-show="curar==0" disabled>Sem curas: {{curar}}</button>
+            <button class="btn give-up" @click="running = false">Desistir</button>
+           </template>
+           <button v-else class="btn start-new-game" @click="startGame">Iniciar jogo</button>           
+        </div>
+        <div class="opt" v-if="running">
+            <button class="btn attackPika" v-if="playerLife == pk" @click="attackPika">Ataque PICA DAS GALÁXIAS</button>
+            <input type="checkbox" v-model="def" v-if="specialAttack == 0" v-show="numDef != 0"><span v-show="numDef != 0" v-if="specialAttack == 0" style="margin-top: 7px; text-shadow: 1px 1px 1px #000;">Ataque com defesa</span> 
+        </div>
+   
+        <div v-if="logs.length">
+            <div class="panel logs" style="margin-top: 30px;;">
+                <ul>
+                    <li v-for="log in logs">{{log.text}}</li>
+                </ul>
+            </div>
+        </div>
+   </div>
+</body>
+</html>
+<script src="app.js"></script>
