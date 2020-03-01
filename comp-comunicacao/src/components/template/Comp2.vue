@@ -5,7 +5,14 @@
 </template>
 <script>
 export default {
-    props:['nome'],
+    props:{
+       nome:{
+           type: String,
+           //require: true
+           default: 'Anônimo'
+       }
+    },
+    
     methods:{
         invert(){
            return this.nome.split('').reverse('').join('')
