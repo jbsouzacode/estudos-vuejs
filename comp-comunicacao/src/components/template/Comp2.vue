@@ -1,11 +1,16 @@
 <template>
  <div class="comp2">
-    <p>Nome: {{nome}}</p>
+    <p>Nome: {{invert()}}</p>
  </div>
 </template>
 <script>
 export default {
-    props:['nome']
+    props:['nome'],
+    methods:{
+        invert(){
+           return this.nome.split('').reverse('').join('')
+      }
+    }
 }
 </script>
 
