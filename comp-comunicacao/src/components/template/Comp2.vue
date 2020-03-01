@@ -9,7 +9,10 @@ export default {
        nome:{
            type: String,
            //require: true
-           default: 'Anônimo'
+           //default: 'Anônimo'
+           default: function(){
+               return Array(10).fill(0).join(',')
+           }
        }
     },
     
