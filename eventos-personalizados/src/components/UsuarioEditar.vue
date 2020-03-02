@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import barramento from '@/barramento'
 export default {
     props:{
         nome:{
@@ -17,13 +18,16 @@ export default {
 
         clear:{
             type:Boolean
+        },
+        idade:{
+            type:String
         }
     },
     methods:{
         mudar(){
             this.nome = 'Jarbas'
             this.clear = true
-            this.$emit('mudarNomeB', this.nome)
+            barramento.$emit('mudarNomeB', this.nome)
             this.$emit('clear', this.clear)
         }
     }
