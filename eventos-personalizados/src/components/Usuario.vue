@@ -7,7 +7,7 @@
         <hr>
         <div class="componentes">
             <app-usuario-info :nome="nome" @mudarNome="nome = $event" :cn="alterarNome"/>
-            <app-usuario-editar @mudarNomeB="nome = $event" :nome="nome" @clear="clear = $event"/>
+            <app-usuario-editar :nome="nome" /><!--@mudarNomeB="nome = $event"  @clear="clear = $event"-->
         </div>
     </div>
 </template>
