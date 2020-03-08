@@ -3,9 +3,9 @@
 <template>
   <div id="app" class="citacao">
         <Citacao>
-                <p>{{citacoes[i].autor}}</p>
+                <p slot="autor">{{citacoes[i].autor}}</p>
                 <p>{{citacoes[i].texto}}</p>
-                <p>{{citacoes[i].fonte}}</p>
+                <p slot="fonte">{{citacoes[i].fonte}}</p>
                
         </Citacao>
          <p>Número: {{numero}} - índice: {{i}}</p>
