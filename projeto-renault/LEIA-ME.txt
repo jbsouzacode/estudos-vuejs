@@ -1,0 +1,7 @@
+Projeto INTERFACE RENAULT
+
+1 - Arquivos organizados dentro da pasta assets(imagem e folha de estilo)
+
+2 - Todos os menus devem ser links, tanto no topo quanto no bottom
+
+3 - Subir o projeto no github
